@@ -12,38 +12,13 @@
   The most complete chat UI for React Native <br/>
   <small>formerly known as Gifted Messenger</small>
 </p>
-<p align="center">
-  <a href="https://www.npmjs.com/package/react-native-gifted-chat">
-  <img alt="npm dowloads" src="https://img.shields.io/npm/dm/react-native-gifted-chat.svg"/></a>
-  <a href="https://www.npmjs.com/package/react-native-gifted-chat"><img alt="npm version" src="https://badge.fury.io/js/react-native-gifted-chat.svg"/></a>
-  <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/FaridSafi/react-native-gifted-chat.svg" alt="build"></a>
-   <a href="https://reactnative.gallery/FaridSafi/gifted-chat"><img src="https://img.shields.io/badge/reactnative.gallery-%F0%9F%8E%AC-green.svg"/></a>
 
 
-</p>
-<p align="center">
-  <a href="https://circleci.com/gh/FaridSafi/react-native-gifted-chat"><img src="https://circleci.com/gh/FaridSafi/react-native-gifted-chat.svg?style=shield" alt="build"></a>
-  <a href="https://travis-ci.org/FaridSafi/react-native-gifted-chat"><img src="https://api.travis-ci.org/FaridSafi/react-native-gifted-chat.svg" alt="deployed"></a>
-  <a title='License' href="https://github.com/FaridSafi/react-native-gifted-chat/blob/master/LICENSE" height="18">
-    <img src='https://img.shields.io/badge/license-MIT-blue.svg' />
-  </a>
-</p>
+This is a fork from [Github] (https://github.com/FaridSafi/react-native-gifted-chat)
 
-<p align="center">
-  <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=exp://expo.io/@xcarpentier/gifted-chat">
-  <br>
-  <a href="https://snack.expo.io/@xcarpentier/gifted-chat" target="_blank"><i>demo</i></a>
-</p>
+## DEMO
 
-## Sponsor
-
-<p align="center">
- <sup>Sponsored by <a href="https://pusher.com/chatkit?utm_source=github&utm_campaign=react-native-gifted-chat-sponsorship">Pusher Chatkit</a>:</sup>
-</p>
-<p align="center">
-  <a href="https://pusher.com/chatkit?utm_source=github&utm_campaign=react-native-gifted-chat-sponsorship">
-    <img width="650" src="https://github.com/bookercodes/react-native-gifted-chat/blob/master/media/chatit-banner.png?raw=true" alt="Pusher Chatkit"></a>
-</p>
+https://github.com/maherzaidoune/GiftedChat_Video
 
 ## Features
 
@@ -67,8 +42,7 @@
 
 ## Installation
 
-* Using [npm](https://www.npmjs.com/#getting-started): `npm install react-native-gifted-chat --save`
-* Using [Yarn](https://yarnpkg.com/): `yarn add react-native-gifted-chat`
+* Using [npm](https://www.npmjs.com/#getting-started): `npm i react-native-gifted-chat-video-support --save`
 
 ## Example
 
@@ -114,6 +88,26 @@ class Example extends React.Component {
       />
     )
   }
+}
+```
+
+##Video chat msg
+
+e.g. Chat Message
+
+```js
+
+{
+  _id: 1,
+  text: 'My video message',
+  createdAt: new Date(Date.UTC(2016, 5, 11, 17, 20, 0)),
+  user: {
+    _id: 2,
+    name: 'React Native',
+    avatar: 'https://facebook.github.io/react/img/logo_og.png',
+  },
+  video: url,
+  // Any additional custom parameters are passed through
 }
 ```
 
@@ -186,8 +180,8 @@ e.g. System Message
 * **`renderMessage`** _(Function)_ - Custom message container
 * **`renderMessageText`** _(Function)_ - Custom message text
 * **`renderMessageImage`** _(Function)_ - Custom message image
+* **`videoProps`** _(Object)_ - Extra props to be passed to the [`<Image>`](https://facebook.github.io/react-native/docs/image.html) component created by the default `renderMessageVideo`
 * **`imageProps`** _(Object)_ - Extra props to be passed to the [`<Image>`](https://facebook.github.io/react-native/docs/image.html) component created by the default `renderMessageImage`
-* **`videoProps`** _(Object)_ - Extra props to be passed to the [`<Video>`](https://github.com/react-native-community/react-native-video) component created by the default `renderMessageVideo`
 * **`lightboxProps`** _(Object)_ - Extra props to be passed to the `MessageImage`'s [Lightbox](https://github.com/oblador/react-native-lightbox)
 * **`renderCustomView`** _(Function)_ - Custom view inside the bubble
 * **`renderDay`** _(Function)_ - Custom day above a message
@@ -255,21 +249,6 @@ If you are using Create React Native App / Expo, no Android specific installatio
   * adding KeyboardAvoidingView after GiftedChat
   * adding an opaque background status bar on app.json https://docs.expo.io/versions/latest/guides/configuration.html#androidstatusbar
 
-* If you plan to use `GiftedChat` inside a `Modal`, see [#200](https://github.com/FaridSafi/react-native-gifted-chat/issues/200).
-## Notes for local development
-
-You can use [`wml`](https://github.com/wix/wml) to keep the example app in sync
-with any changes you make to the library during development. Steps:
-
-1. Install it: `npm install -g wml`
-2. Configure it: `wml add . example/node_modules/react-native-gifted-chat` from the root directory
-3. `cd example`
-4. `npm start`
-5. `wml start` in another terminal window (doesn't matter where)
-
-Note that it's important for `wml start` to come **after** `npm start`, or you'll get `Can't find entry file index.js` errors.
-If you have any issues, you can clear your watches using `watchman watch-del-all` and try again.
-
 ## Questions
 
 * [How can I set Bubble color for each user?](https://github.com/FaridSafi/react-native-gifted-chat/issues/672)
@@ -285,17 +264,3 @@ If you have any issues, you can clear your watches using `watchman watch-del-all
 ## License
 
 * [MIT](LICENSE)
-
-## Author
-
-Feel free to ask me questions on Twitter [@FaridSafi](https://www.twitter.com/FaridSafi)!
-
-## Contributors
-
-* Kevin Cooper [cooperka](https://github.com/cooperka)
-* Kfir Golan [kfiroo](https://github.com/kfiroo)
-* Bruno Cascio [brunocascio](https://github.com/brunocascio)
-* Xavier Carpentier [xcarpentier](https://github.com/xcarpentier)
-* [more](https://github.com/FaridSafi/react-native-gifted-chat/graphs/contributors)
-
-<img src="https://api.keen.io/3.0/projects/5ae31b61c9e77c0001cc2093/events/pageviews?api_key=55301C3E5BAB217E90A5867113C02506CE20385CD6F4C9C1CCDD4671B1A9DE374C3DF9DEF70C0BB3F5A9C5CA4CB1CCCFAF25FC3ED9CF63FB83102456A6881EFBAECD1C7D9718EE5402752DD8F6FA2DEC4D844BCB17FE6262570DB447D9A8CED2&data=eyJ0aXRsZSI6ICJnYyJ9" />

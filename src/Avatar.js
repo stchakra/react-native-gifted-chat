@@ -37,6 +37,7 @@ const styles = {
 
 export default class Avatar extends React.PureComponent {
 
+
   renderAvatar() {
     if (this.props.renderAvatar) {
       const { renderAvatar, ...avatarProps } = this.props;
@@ -58,8 +59,8 @@ export default class Avatar extends React.PureComponent {
     const { renderAvatarOnTop, showAvatarForEveryMessage } = this.props;
     const messageToCompare = renderAvatarOnTop ? this.props.previousMessage : this.props.nextMessage;
     const computedStyle = renderAvatarOnTop ? 'onTop' : 'onBottom';
-
-    if (this.props.renderAvatar === null) {
+ 
+    if (this.props.renderAvatar === null || this.props.currentMessage.isDeleted==true) {
       return null;
     }
 

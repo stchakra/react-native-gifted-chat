@@ -85,14 +85,16 @@ class GiftedChat extends React.Component {
     if (!Array.isArray(messages)) {
       messages = [messages];
     }
-    return inverted ? messages.concat(currentMessages) : currentMessages.concat(messages);
+    return inverted ? [...messages,...currentMessages] : currentMessages.concat(messages);
+    //return inverted ? messages.concat(currentMessages) : currentMessages.concat(messages);
   }
 
   static prepend(currentMessages = [], messages, inverted = true) {
     if (!Array.isArray(messages)) {
       messages = [messages];
     }
-    return inverted ? currentMessages.concat(messages) : messages.concat(currentMessages);
+    return inverted ? [...messages,...currentMessages] : currentMessages.concat(messages);
+    //return inverted ? currentMessages.concat(messages) : messages.concat(currentMessages);
   }
 
   getChildContext() {
@@ -348,7 +350,7 @@ class GiftedChat extends React.Component {
         if (this.getIsMounted() === true) {
           this.setIsTypingDisabled(false);
         }
-      }, 100);
+      }, 0);
     }
   }
 

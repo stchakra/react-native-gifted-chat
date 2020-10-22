@@ -10,7 +10,7 @@ import Time from './Time';
 import Color from './Color';
 
 import { isSameUser, isSameDay } from './utils';
-import MessageVideo from './MessageVideo';
+import MessageVideo from './MessageVideo'; 
 
 export default class Bubble extends React.PureComponent {
 
@@ -18,12 +18,12 @@ export default class Bubble extends React.PureComponent {
     super(props);
     this.onLongPress = this.onLongPress.bind(this);
   }
-
+ 
   onLongPress() {
     if (this.props.onLongPress) {
       this.props.onLongPress(this.context, this.props.currentMessage);
     } else if (this.props.currentMessage.text) {
-      const options = ['Copy Text', 'Cancel'];
+      const options = ['Copy Text','Cancel'];
       const cancelButtonIndex = options.length - 1;
       this.context.actionSheet().showActionSheetWithOptions(
         {
@@ -34,7 +34,7 @@ export default class Bubble extends React.PureComponent {
           switch (buttonIndex) {
             case 0:
               Clipboard.setString(this.props.currentMessage.text);
-              break;
+              break; 
             default:
               break;
           }
@@ -70,8 +70,12 @@ export default class Bubble extends React.PureComponent {
   }
 
   renderMessageText() {
+    
+    if(this.props.currentMessage.isDeleted==true) return;
+
     if (this.props.currentMessage.text) {
       const { containerStyle, wrapperStyle, ...messageTextProps } = this.props;
+ 
       if (this.props.renderMessageText) {
         return this.props.renderMessageText(messageTextProps);
       }
@@ -122,7 +126,7 @@ export default class Bubble extends React.PureComponent {
   }
 
   renderTime() {
-    if (this.props.currentMessage.createdAt) {
+    if (this.props.currentMessage.createdAt && this.props.currentMessage.isDeleted==false) {
       const { containerStyle, wrapperStyle, ...timeProps } = this.props;
       if (this.props.renderTime) {
         return this.props.renderTime(timeProps);

@@ -22,7 +22,10 @@ export default function MessageImage({
       >
         <Image
           {...imageProps}
-          style={[styles.image, imageStyle]}
+          style={{
+            aspectRatio: 1,
+            width: "100%"
+        }}
           source={{ uri: currentMessage.image }}
         />
       </Lightbox>
